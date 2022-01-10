@@ -31,6 +31,10 @@ In this work the next 16 parameters [were monitored](https://github.com/Defasium
  15. enNearAngle - angle between nearest enemy projectile and character, in radians
  16. score - current score, which is calculated as 20 x bossDamage + 10 x kills + 5 x hits - bulletsUsed - 5 x damageTaken - timePassed / 100
 
+<p align="center">
+  <img src="inputs.png" alt="title" width="100%"/>    
+</p>
+
 Movements and fire buttons were also [monitored](https://github.com/Defasium/the-binding-of-isaac-js-ai-bot/blob/53667083f6ac53fc8f62e3ce7e73bd97d836db50/js/keybind.js#L6-L8).
 
 After some matches (around 40-50) all recored data was downloaded with the help of written [saveRecords method](https://github.com/Defasium/the-binding-of-isaac-js-ai-bot/blob/53667083f6ac53fc8f62e3ce7e73bd97d836db50/js/bot.js#L243-L256) into json file and used for training.
