@@ -5,7 +5,7 @@ Artificial Intelligence Bot based on feedforward neural network for a Javascript
   <img src="tboi-ai-demo.gif" alt="title" width="100%"/>    
 </p>
 
-### You can examine the demo here: [__🔥DEMO🔥__]()
+### You can examine the demo from above picture [__HERE__](https://defasium.github.io/the-binding-of-isaac-js-ai-bot/)
 
 ### How it works
 The bot uses behavioral cloning technique in order to learn its parameters. That means that it trains on fixed collected data set.
