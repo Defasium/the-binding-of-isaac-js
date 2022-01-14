@@ -4,6 +4,14 @@ gameStats.games = 1;
 gameStats.wins = 1;
 gameStats.time = Date.now();
 
+// auto select boss
+var selectionInterval = setTimeout(() => {
+    if (document.getElementById('editor')) {
+        assign('X1', 2, 3);
+        clearInterval(selectionInterval);
+    }
+}, 50);
+
 var _damager = Player.getDamage;
 Player.getDamage = function(dmg, enemyx, enemyy) {
     gameStats.damage += dmg;
