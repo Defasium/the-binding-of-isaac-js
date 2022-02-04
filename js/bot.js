@@ -163,9 +163,11 @@ const getPriorInputs = () => {
 const getInputs = () => {
     const time = Date.now() - gameStats.time;
 
-    let input = getPriorInputs();
+    const input = getPriorInputs();
 
     input.score = 20 * gameStats.bossDamage + 10 * gameStats.kill + 5 * gameStats.hit - 2 * gameStats.bullet - 5 * gameStats.damage - time / 100;
+
+    if (!Game) return input;
 
     const comparator = (a, b) => {
         const aDist = Math.abs(a.x - input.playerX) + Math.abs(a.y - input.playerY);
