@@ -1,3 +1,10 @@
+
+const records = [];
+
+let busy = false;
+let working = false;
+let calc = false;
+
 gameStats.damage = 0;
 gameStats.bossDamage = 0;
 gameStats.games = 1;
@@ -29,9 +36,6 @@ var bossDecoratorSetup = () => {
     };
 };
 
-const records = [];
-
-let busy = false;
 const manageObserver = async () => {
     if (busy) return;
     busy = true;
@@ -156,7 +160,7 @@ const convertToArr = (inputs) => {
 
 setInterval(() => {
     // from keybind.js
-    if (document.getElementById('testbtn').value === 'Test') return;
+    if (document.getElementById('testbtn').value === 'Test' && !busy) return;
     const inputs = convertToArr(getInputs());
     const boolMap = {
         false: 0,
@@ -187,8 +191,6 @@ const getAction = async (inputs) => {
     return [moveAction1, moveAction2, fireAction]; //KEYS[action];
 }
 
-let working = false;
-
 const activate = () => {
     working = !working;
 };
@@ -196,9 +198,13 @@ const activate = () => {
 document.addEventListener(
     "keydown",
     (e) => {
-        if (e.keyCode === 9) {
+        if (e.keyCode === 9) { // tab
             e.preventDefault();
-            activate();
+            document.getElementById('editorlink').getElementsByTagName('a')[0].click();
+        }
+        if (e.keyCode === 192) { // ~
+            e.preventDefault();
+            saveRecords(records);
         }
     },
     false
@@ -219,9 +225,9 @@ document.getElementById('editorlink').getElementsByTagName('a')[0].addEventListe
 });
 
 setInterval(async () => {
-    if (!working) return;
+    if (!working || calc) return;
+    calc = true;
     const actions = await getAction(getInputs());
-    //console.log(actions);
     const keyMap = {
         false: 'keyup',
         true: 'keydown'
@@ -236,7 +242,8 @@ setInterval(async () => {
         });
         window.dispatchEvent(keyEv);
     };
-}, 100);
+    calc = false;
+}, 25);
 
 
 const blobs = [];
