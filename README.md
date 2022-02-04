@@ -39,9 +39,9 @@ Movements and fire buttons were also [monitored](https://github.com/Defasium/the
 
 After some matches (around 40-50) all recored data was downloaded with the help of written [saveRecords method](https://github.com/Defasium/the-binding-of-isaac-js-ai-bot/blob/53667083f6ac53fc8f62e3ce7e73bd97d836db50/js/bot.js#L243-L256) into json file and used for training.
 
-For training the python's tensorflow library was used (training script will be provided soon).
+For training the python's tensorflow library was used: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lBIPtpnFwRR93PUonjkL3C3OCEJDOEJ8?usp=sharing/).
 
-A simple feedforward neural network with one hidden layer with 384 neurons and relu activational function was used. Network predicts 8 keypressed with 3 wait actions (for horizontal movement, for vertical movement and for firing).
+A simple feedforward neural network with one hidden layer with 384 neurons and relu activational function was used. Network predicts 8 keypresses with 3 wait actions (for horizontal movement, for vertical movement and for firing).
 
 After that model's weights was converted to a json file format and inserted into [nn.js script](https://github.com/Defasium/the-binding-of-isaac-js-ai-bot/blob/53667083f6ac53fc8f62e3ce7e73bd97d836db50/js/nn.js#L4).
 A feed forward prediction algorithm was written in pure JS.
